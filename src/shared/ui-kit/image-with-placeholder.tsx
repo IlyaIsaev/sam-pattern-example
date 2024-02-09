@@ -1,4 +1,4 @@
-import { css, cva, cx } from "@style/css";
+import { css, cx } from "@style/css";
 import { memo, useState } from "react";
 
 const rootStyle = css({

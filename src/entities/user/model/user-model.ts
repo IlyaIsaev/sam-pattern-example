@@ -13,10 +13,15 @@ export const { model, actions } = addComponent({
     showLoader: () => ({
       showLoader: true,
     }),
+
     fetchUsers: async (numberOfUsers?: number) => {
       const usersPerPage = 10;
 
-      const page = (numberOfUsers || usersPerPage) / usersPerPage;
+      if (numberOfUsers === undefined) {
+        return 1;
+      }
+
+      const page = numberOfUsers / usersPerPage + 1;
 
       try {
         const { results } = await fetchUsers({
